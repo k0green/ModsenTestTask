@@ -1,9 +1,28 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ModsenTestTask;
+using ModsenTestTask.Data;
 using ModsenTestTask.Options;
+using ModsenTestTask.Repositories.Implementations;
+using ModsenTestTask.Repositories.Interfaces;
+using ModsenTestTask.Services.Implementations;
+using ModsenTestTask.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+                       ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddAutoMapper(typeof(AppMappingProfile));
+
+builder.Services.AddScoped<IEventRepository, EventRepository>();
+
+builder.Services.AddTransient<IEventService, EventService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

@@ -1,6 +1,8 @@
-﻿namespace ModsenTestTask.Repositories.Interfaces;
+﻿using ModsenTestTask.Data.Entities;
 
-public interface IEventRepository
+namespace ModsenTestTask.Repositories.Interfaces;
+
+public interface IEventRepository : IBaseRepository<Event>
 {
     
 }

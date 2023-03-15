@@ -1,6 +1,12 @@
-﻿namespace ModsenTestTask.Repositories.Implementations;
+﻿using ModsenTestTask.Data;
+using ModsenTestTask.Data.Entities;
+using ModsenTestTask.Repositories.Interfaces;
 
-public class EventRepository
+namespace ModsenTestTask.Repositories.Implementations;
+
+public class EventRepository : BaseRepository<Event>, IEventRepository
 {
-    
+    public EventRepository(ApplicationDbContext context) : base(context)
+    {
+    }
 }

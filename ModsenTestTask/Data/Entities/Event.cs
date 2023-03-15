@@ -1,9 +1,9 @@
-﻿namespace ModsenTestTask.Data.Entities;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Event
+namespace ModsenTestTask.Data.Entities;
+
+public class Event : BaseModel
 {
-    public string Id { get; set; }
-    
     public string Name { get; set; }
     public string Description { get; set; }
     public string Plan { get; set; }
