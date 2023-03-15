@@ -8,9 +8,9 @@ public interface IEventService
 
     public Task UpdateEventAsync(EventEditModel model);
 
-    public Task DeleteEventByIdAsync(string id);
+    public Task DeleteEventByIdAsync(long id);
 
-    public Task<EventViewModel> GetEventByIdAsync(string id);
+    public Task<EventViewModel> GetEventByIdAsync(long id);
 
     public Task<List<EventViewModel>> GetAllEventsAsync();
 }

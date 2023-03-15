@@ -4,7 +4,7 @@ namespace ModsenTestTask.Repositories.Interfaces;
 
 public interface IBaseRepository<T> where T : BaseModel
 {
-    public Task<T> GetByIdAsync(string id);
+    public Task<T> GetByIdAsync(long id);
 
     public Task<List<T>> GetAllAsync();
 
@@ -14,5 +14,5 @@ public interface IBaseRepository<T> where T : BaseModel
 
     public Task DeleteAsync(T model);
 
-    public Task DeleteByIdAsync(string id);
+    public Task DeleteByIdAsync(long id);
 }

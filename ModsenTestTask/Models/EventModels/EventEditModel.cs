@@ -5,8 +5,7 @@ namespace ModsenTestTask.Models.EventModels;
 public class EventEditModel
 {
     [Required(ErrorMessage = "Id must be filled")]
-    [StringLength(64, MinimumLength = 64, ErrorMessage = "String length must be from 64 to 64 symbols")]
-    public string Id { get; set; }
+    public long Id { get; set; }
 
     [Required(ErrorMessage = "Name must be filled")]
     [StringLength(50, MinimumLength = 1, ErrorMessage = "String length must be from 1 to 50 symbols")]

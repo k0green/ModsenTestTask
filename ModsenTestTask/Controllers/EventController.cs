@@ -30,7 +30,7 @@ public class EventController : ControllerBase
 
     [Authorize]
     [HttpGet]
-    public async Task<IActionResult> GetEventById(string id)
+    public async Task<IActionResult> GetEventById(long id)
     {
         if (id == null)
             return BadRequest();
@@ -59,7 +59,7 @@ public class EventController : ControllerBase
 
     [Authorize]
     [HttpDelete]
-    public async Task<IActionResult> DeleteEvent(string id)
+    public async Task<IActionResult> DeleteEvent(long id)
     {
         if (id == null)
             return BadRequest();

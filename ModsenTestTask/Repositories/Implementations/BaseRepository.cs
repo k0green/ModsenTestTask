@@ -16,7 +16,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
         _dbSet = _dbContext.Set<T>();
     }
 
-    public virtual async Task<T> GetByIdAsync(string id)
+    public virtual async Task<T> GetByIdAsync(long id)
         => await _dbSet.FindAsync(id);
 
     public virtual async Task<List<T>> GetAllAsync() 
@@ -40,7 +40,7 @@ public abstract class BaseRepository<T> : IBaseRepository<T> where T : BaseModel
         await _dbContext.SaveChangesAsync();
     }
 
-    public virtual async Task DeleteByIdAsync(string id)
+    public virtual async Task DeleteByIdAsync(long id)
     {
         await DeleteAsync(await GetByIdAsync(id));
         await _dbContext.SaveChangesAsync();

@@ -21,7 +21,6 @@ public class EventService : IEventService
     public async Task AddEventAsync(EventCreateModel model)
     {
         var eventEntity = _mapper.Map<Event>(model);
-        eventEntity.Id = Guid.NewGuid().ToString();
         await _eventRepository.AddAsync(eventEntity);
     }
 
@@ -31,10 +30,10 @@ public class EventService : IEventService
         await _eventRepository.UpdateAsync(eventEntity);
     }
 
-    public async Task DeleteEventByIdAsync(string id)
+    public async Task DeleteEventByIdAsync(long id)
         => await _eventRepository.DeleteByIdAsync(id);
 
-    public async Task<EventViewModel> GetEventByIdAsync(string id)
+    public async Task<EventViewModel> GetEventByIdAsync(long id)
         => _mapper.Map<EventViewModel>(await _eventRepository.GetByIdAsync(id));
 
     public async Task<List<EventViewModel>> GetAllEventsAsync()
