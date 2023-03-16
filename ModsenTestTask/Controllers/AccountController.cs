@@ -16,7 +16,7 @@ public class AccountController : ControllerBase
         {
             var identity = GetIdentity();
             if (identity == null)
-                return BadRequest(new { errorText = "Invalid username or password." });
+                return BadRequest(new { errorText = "Invalid data." });
 
             var now = DateTime.UtcNow;
             var jwt = new JwtSecurityToken(

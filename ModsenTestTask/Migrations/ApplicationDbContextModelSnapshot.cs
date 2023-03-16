@@ -24,7 +24,7 @@ namespace ModsenTestTask.Migrations
 
             modelBuilder.Entity("ModsenTestTask.Data.Entities.Event", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
