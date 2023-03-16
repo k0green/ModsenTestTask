@@ -11,7 +11,7 @@ namespace ModsenTestTask.Controllers;
 public class AccountController : ControllerBase
 {
  
-        [HttpPost("/token")]
+        [HttpGet("/token")]
         public async Task<IActionResult> Token()
         {
             var identity = GetIdentity();
